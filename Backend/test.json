@@ -1,5 +1,7 @@
 {
-  "0": "test",
-  "1": "test1",
-  "2": "test2"
+  "test": [
+    { "text": "dddddd", "answer": 0 },
+    { "text": "dddddd", "answer": 0 },
+    { "text": "dddddd", "answer": 0 }
+  ]
 }
