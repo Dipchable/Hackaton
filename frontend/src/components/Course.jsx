@@ -6,21 +6,7 @@ class Course extends PureComponent {
     super(props);
 
     this.state = {
-      question: [
-        { text: "Все люди, которые меня окружают, нравятся мне", answer: 0 },
-        { text: "Я всегда быстро нахожу друзей в новом коллективе", answer: 0 },
-        {
-          text:
-            "Самое главное в новом коллективе – установить отношения с начальством, отношения с коллегами всегда на втором месте",
-          answer: 0
-        },
-        {
-          text: "Мне нравится участвовать в корпоративных мероприятиях ",
-          answer: 0
-        },
-        { text: "Все люди, которые меня окружают, нравятся мне", answer: 0 },
-        { text: "Все люди, которые меня окружают, нравятся мне", answer: 0 }
-      ],
+      question: [{ text: "", answer: 0 }],
       index: 0,
       theEnd: false
     };
@@ -34,6 +20,11 @@ class Course extends PureComponent {
       question: newArr,
       index: this.state.index + 1,
       theEnd: end
+    });
+  }
+  async componentDidMount() {
+    this.setState({
+      question: this.props.question.question
     });
   }
 

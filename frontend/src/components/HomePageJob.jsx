@@ -28,7 +28,8 @@ class HomePageJob extends PureComponent {
 
           text: "Экзамен, чтобы получить аттестацию Ux/Ui дизайнера"
         }
-      ]
+      ],
+      question: []
     };
     this.eventCourse = this.eventCourse.bind(this);
     this.handleHide = this.handleHide.bind(this);
@@ -45,9 +46,25 @@ class HomePageJob extends PureComponent {
     });
   }
 
+  async componentDidMount() {
+    const response = await fetch("/visit", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json;charset=utf-8"
+      }
+    });
+    const result = await response.json();
+    this.setState({
+      question: result
+    });
+  }
+
   render() {
     const modal = this.state.modal ? (
-      <Course handleHide={this.handleHide}></Course>
+      <Course
+        handleHide={this.handleHide}
+        question={this.state.question}
+      ></Course>
     ) : null;
     return (
       <div className="UserAccount">

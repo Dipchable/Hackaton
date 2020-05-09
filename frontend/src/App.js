@@ -4,6 +4,7 @@ import Footer from "./components/Footer";
 import Main from "./components/Main";
 import HomePageJob from "./components/HomePageJob";
 import AdminHome from "./adminComponents/adminHome";
+import "./components/components/Modal.css";
 
 import "./App.css";
 
@@ -23,16 +24,6 @@ class App extends PureComponent {
       logged: bool,
       email
     });
-  }
-  async componentDidMount() {
-    const response = await fetch("/visit", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json;charset=utf-8"
-      }
-    });
-    const result = await response.json();
-    console.log(result);
   }
 
   render() {
