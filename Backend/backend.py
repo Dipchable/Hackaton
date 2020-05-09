@@ -36,8 +36,14 @@ def register(email, type_employer):
             "surname": " ",
             "type_employer": type_employer
         }
+	if type_employer == 'Administrator':
+            path_e = 'Administrator'
+        elif type_employer == 'HR' or type_employer == 'Project maneger' or type_employer == 'Project maneger' or type_employer == 'Team lead':
+            path_e = 'Supervisor_and_HR'
+        else:
+            path_e = 'employer'
         path = email+'.json'
-        with open(os.path.join(os.path.dirname(__file__), 'users', path), "w") as write_file:
+        with open(os.path.join(os.path.dirname(__file__),'users',path_e,path), "w") as write_file:
             json.dump(data, write_file)
 
     return render_template('register.html')
