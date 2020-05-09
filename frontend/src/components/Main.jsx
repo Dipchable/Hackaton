@@ -14,10 +14,11 @@ class Main extends PureComponent {
   authorization(email, password) {
     //отправить феч на бэк для проверки данных
     console.log(email, password);
+
     this.setState({
       authorization: true
     });
-    this.props.isLogged(true);
+    this.props.isLogged(true, email === "admin@gmail.com");
   }
 
   render() {

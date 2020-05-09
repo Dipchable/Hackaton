@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Main from "./components/Main";
 import HomePageJob from "./components/HomePageJob";
+import AdminHome from "./adminComponents/adminHome";
 
 import "./App.css";
 
@@ -11,14 +12,16 @@ class App extends PureComponent {
     super(props);
 
     this.state = {
-      logged: false
+      logged: false,
+      email: ""
     };
     this.isLogged = this.isLogged.bind(this);
   }
 
-  isLogged(bool) {
+  isLogged(bool, email) {
     this.setState({
-      logged: bool
+      logged: bool,
+      email
     });
   }
 
@@ -26,11 +29,12 @@ class App extends PureComponent {
     return (
       <div>
         <Header />
-
         {this.state.logged ? (
-          <>
+          this.state.email ? (
+            <AdminHome />
+          ) : (
             <HomePageJob />
-          </>
+          )
         ) : (
           <Main isLogged={this.isLogged} />
         )}
