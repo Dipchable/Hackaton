@@ -43,14 +43,14 @@ def register(email, type_employer):
     return render_template('register.html')
 
 
-@app.route('/loging', methods=['post', 'get'])
-def login():
-    password = ''
-    email = ''
+@app.route('/loging/<email>/<password>', methods=['post', 'get'])
+def login(email, password):
+    # password = ''
+    # email = ''
     message = ''
     if request.method == 'POST':
-        email = request.form.get('email')
-        password = request.form.get('password')
+        # email = request.form.get('email')
+        # password = request.form.get('password')
         path = email+'.json'
         if os.path.join(os.path.dirname(__file__), 'users', path):
             with open(os.path.join(os.path.dirname(__file__), 'users', path), "r") as read_file:
@@ -60,8 +60,27 @@ def login():
             else:
                 message = 'password incorrect'
 
-    return render_template('login.html', message=message)
+    return message
 
 
 if __name__ == "__main__":
     app.run(debug='true', host='127.0.0.1', port=5000)
+
+# @app.route('/loging/<email>/<password>', methods=['post', 'get'])
+# def login(email, password):
+#     # password = ''
+#     # email = ''
+#     message = ''
+#     if request.method == 'POST':
+#         # email = request.form.get('email')
+#         # password = request.form.get('password')
+#         path = email+'.json'
+#         if os.path.join(os.path.dirname(__file__), 'users', path):
+#             with open(os.path.join(os.path.dirname(__file__), 'users', path), "r") as read_file:
+#                 data = json.load(read_file)
+#             if data["password"] == password:
+#                 message = 'password correct'
+#             else:
+#                 message = 'password incorrect'
+
+#     return message

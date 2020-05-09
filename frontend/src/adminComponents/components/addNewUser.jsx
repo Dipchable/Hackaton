@@ -33,28 +33,28 @@ class AddNewUser extends PureComponent {
       useModal: true
     });
   };
-  backModal = () => {
-    // const email = JSON.stringify({
-    //   email: this.state.email
-    // });
-    // const type_employer = JSON.stringify({
-    //   type_employer: this.state.type_employer
-    // });
-
+  backModal = async () => {
     fetch(`/register/${this.state.email}/${this.state.type_employer}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json;charset=utf-8"
       }
     });
-
-    // const result = await response.json();
-    // console.log(result);
-
     this.setState({
       useModal: false
     });
   };
+
+  async componentDidMount() {
+    const response = await fetch(`/loging/${this.state.email}/ggg`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json;charset=utf-8"
+      }
+    });
+    const result = await response.json();
+    console.log(result);
+  }
 
   render() {
     const modal = (
