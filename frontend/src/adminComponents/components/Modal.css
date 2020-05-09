@@ -59,4 +59,19 @@ button {
 .add__user__input__select {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  margin-left: 75px;
+}
+.box_addUser {
+  width: 338px;
+  height: 60px;
+  border-radius: 5px;
+  margin-left: 1070px;
+  position: absolute;
+  margin-top: 455px;
+}
+.addUser {
+  background: #d12e26;
+  color: white;
+  height: 52px;
 }

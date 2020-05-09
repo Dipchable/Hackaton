@@ -15,6 +15,9 @@ class AdminHome extends PureComponent {
   render() {
     return (
       <div className="admin__home__block">
+        <div>
+          <AddNewUser></AddNewUser>
+        </div>
         <div className="select__value">
           <select style={{ marginTop: "600px" }}>
             <option disabled>Выбрать сотрудника</option>
@@ -32,9 +35,6 @@ class AdminHome extends PureComponent {
               return <option key={index}>{item}</option>;
             })}
           </select>
-        </div>
-        <div>
-          <AddNewUser></AddNewUser>
         </div>
       </div>
     );
