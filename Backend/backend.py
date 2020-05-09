@@ -24,7 +24,7 @@ def register():
     type_employer = ''
     if request.method == 'POST':
         email = request.form.get('email')
-        type_employer = ('type_employer')
+        type_employer = request.form.get('type_employer')
         pool=string.ascii_letters
         password = ''.join(random.choice(pool))
         for i in range(8):
@@ -40,6 +40,6 @@ def register():
         with open(os.path.join(os.path.dirname(__file__),'users',path), "w") as write_file:
             json.dump(data, write_file)
 
-    return render_template('register.html', test = test)
+    return render_template('register.html')
 if __name__ == "__main__":
     app.run(host='127.0.0.1', port=5000) 

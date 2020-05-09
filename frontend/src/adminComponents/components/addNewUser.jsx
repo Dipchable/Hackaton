@@ -6,13 +6,28 @@ class AddNewUser extends PureComponent {
     super(props);
 
     this.state = {
-      useModal: false
+      allType_employer: [
+        "Frontend developer",
+        "Backend developer",
+        "HR",
+        "Administrator",
+        "Team Lead",
+        "Product manager",
+        "Project manager"
+      ],
+      useModal: false,
+      email: "",
+      type_employer: ""
     };
   }
+  dataChange = e => {
+    const data = e.target;
+    this.setState({
+      [data.name]: data.value
+    });
+  };
 
   goModal = () => {
-    console.log("go");
-
     this.setState({
       useModal: true
     });
@@ -28,9 +43,28 @@ class AddNewUser extends PureComponent {
       <Modal>
         <div className="modal">
           <div className="modal__block">
-            <input type="email" placeholder="email" />
-            <input type="password" placeholder="password" />
-            <button onClick={this.backModal}>Добавить</button>
+            <h1>Добавьте нового сотрудника</h1>
+            <div className="add__user__input__select">
+              <input
+                type="email"
+                placeholder="Email"
+                name="email"
+                onChange={this.dataChange}
+              />
+              <select name="type_employer" id="">
+                <option disabled>Выберите специализацию</option>
+                {this.state.allType_employer.map((item, index) => {
+                  return (
+                    <option value={item} key={index}>
+                      {item}
+                    </option>
+                  );
+                })}
+              </select>
+            </div>
+            <button onClick={this.backModal} className="button__hover">
+              Добавить
+            </button>
           </div>
         </div>
       </Modal>
