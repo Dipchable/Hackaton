@@ -24,6 +24,16 @@ class App extends PureComponent {
       email
     });
   }
+  async componentDidMount() {
+    const response = await fetch("/visit", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json;charset=utf-8"
+      }
+    });
+    const result = await response.json();
+    console.log(result);
+  }
 
   render() {
     return (

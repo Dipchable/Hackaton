@@ -7,7 +7,12 @@
     <title>Document</title>
   </head>
   <body>
+    {%if test%}
+    <h1>{{ test }}</h1>
+    {%endif%}
     <div>Test</div>
-    <form action="/" method="POST"><input type="submit" /></form>
+    <form action="" method="post">
+      <input type="submit" value="123" />
+    </form>
   </body>
 </html>
