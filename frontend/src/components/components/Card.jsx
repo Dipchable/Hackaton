@@ -16,7 +16,7 @@ class Card extends PureComponent {
   render() {
     const { title, text } = this.props.card;
     return (
-      <div className="block__card">
+      <div className="block__card" style={{ marginTop: "430px" }}>
         <div style={{ marginTop: "22px" }}>
           <h2>{title}</h2>
         </div>

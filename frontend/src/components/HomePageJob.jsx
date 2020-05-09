@@ -50,9 +50,9 @@ class HomePageJob extends PureComponent {
       <Course handleHide={this.handleHide}></Course>
     ) : null;
     return (
-      <div>
+      <div className="UserAccount">
         {modal}
-        <div className="allCourse__galery">
+        <div className="allCourse__galery" style={{ marginLeft: "100px" }}>
           {this.state.tasks.map((item, index) => {
             return (
               <Card

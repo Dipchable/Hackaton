@@ -28,7 +28,9 @@ class App extends PureComponent {
         <Header />
 
         {this.state.logged ? (
-          <HomePageJob />
+          <>
+            <HomePageJob />
+          </>
         ) : (
           <Main isLogged={this.isLogged} />
         )}
