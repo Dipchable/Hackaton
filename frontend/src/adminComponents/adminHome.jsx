@@ -1,5 +1,5 @@
 import React, { PureComponent } from "react";
-
+import "./adminHome.css";
 class AdminHome extends PureComponent {
   constructor(props) {
     super(props);
@@ -8,7 +8,7 @@ class AdminHome extends PureComponent {
   }
 
   render() {
-    return <div></div>;
+    return <div className="admin__home__block"></div>;
   }
 }
 
