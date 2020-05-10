@@ -4,6 +4,7 @@ import json
 import os
 import random
 import string
+import smtplib
 
 app = Flask(__name__)
 
@@ -38,6 +39,13 @@ def register(email, type_employer):
         path = email+'.json'
         with open(os.path.join(os.path.dirname(__file__), 'users', path), "w") as write_file:
             json.dump(data, write_file)
+        smtpObj = smtplib.SMTP('smtp.gmail.com', 587)
+        smtpObj.starttls()
+        smtpObj.login('hackaton.unknown.brain@gmail.com','Dima123456Aa')
+        TO = email
+        FROM = 'hackaton.unknown.brain@gmail.com'
+        smtpObj.sendmail('hackaton.unknown.brain@gmail.com', TO, 'Your password mts: '+password)
+        smtpObj.quit()
     return render_template('register.html')
 
 
