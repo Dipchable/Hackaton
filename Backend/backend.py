@@ -36,6 +36,7 @@ def register(email, type_employer):
             "surname": " ",
             "type_employer": type_employer
         }
+
         path = email+'.json'
         with open(os.path.join(os.path.dirname(__file__), 'users', path), "w") as write_file:
             json.dump(data, write_file)
@@ -49,8 +50,7 @@ def login(email, password):
     # email = ''
     message = ''
     if request.method == 'POST':
-        # email = request.form.get('email')
-        # password = request.form.get('password')
+
         path = email+'.json'
         if os.path.join(os.path.dirname(__file__), 'users', path):
             with open(os.path.join(os.path.dirname(__file__), 'users', path), "r") as read_file:

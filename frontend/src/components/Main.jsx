@@ -1,5 +1,6 @@
 import React, { PureComponent } from "react";
 import Login from "./components/Login";
+import { withRouter } from "react-router";
 
 class Main extends PureComponent {
   constructor(props) {
@@ -11,14 +12,27 @@ class Main extends PureComponent {
     this.authorization = this.authorization.bind(this);
   }
 
-  authorization(email, password) {
+  async authorization(email, password) {
     //отправить феч на бэк для проверки данных
     console.log(email, password);
-
-    this.setState({
-      authorization: true
+    const response = await fetch(`/loging/${email}/${password}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json;charset=utf-8"
+      }
     });
-    this.props.isLogged(true, email === "admin@gmail.com");
+    const result = await response.text();
+    console.log(result);
+    // console.log();
+
+    if (result === "password correct") {
+      this.setState({
+        authorization: true
+      });
+      this.props.isLogged(true, email === "admin@gmail.com");
+    } else {
+      alert("Не верные данные");
+    }
   }
 
   render() {
@@ -34,4 +48,4 @@ class Main extends PureComponent {
   }
 }
 
-export default Main;
+export default withRouter(Main);

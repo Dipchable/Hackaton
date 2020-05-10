@@ -14,7 +14,7 @@ class AddNewUser extends PureComponent {
         "Team Lead",
         "Product manager",
         "Project manager",
-        "Ux/Ui дизайнер"
+        "Ux designer"
       ],
       useModal: false,
       email: "",
@@ -44,17 +44,6 @@ class AddNewUser extends PureComponent {
       useModal: false
     });
   };
-
-  async componentDidMount() {
-    const response = await fetch(`/loging/${this.state.email}/ggg`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json;charset=utf-8"
-      }
-    });
-    const result = await response.json();
-    console.log(result);
-  }
 
   render() {
     const modal = (
