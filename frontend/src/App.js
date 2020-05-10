@@ -5,6 +5,7 @@ import Main from "./components/Main";
 import HomePageJob from "./components/HomePageJob";
 import AdminHome from "./adminComponents/adminHome";
 import "./components/components/Modal.css";
+import { withRouter, Route, Switch, Redirect } from "react-router-dom";
 
 import "./App.css";
 

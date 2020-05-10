@@ -13,8 +13,6 @@ class Main extends PureComponent {
   }
 
   async authorization(email, password) {
-    //отправить феч на бэк для проверки данных
-    console.log(email, password);
     const response = await fetch(`/loging/${email}/${password}`, {
       method: "POST",
       headers: {

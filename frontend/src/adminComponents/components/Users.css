@@ -1,0 +1,7 @@
+.string__users {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin-left: 150px;
+  margin-top: 180px;
+}
